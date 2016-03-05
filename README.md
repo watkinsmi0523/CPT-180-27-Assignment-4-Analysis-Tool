@@ -13,6 +13,7 @@ This is a tiny diversion from our larger project to explore data processing. The
     livevil
     the purpose of life is to challenge yourself and explore the limits of your abilities otherwise how would you push those limits.
     ```
+      
   2. the second argument `argv[2]` will be one of the following
     - `search <query>` 
         - In the event of search we will add an additional argument `argv[3]` which will represent what to search for. Your program will return the line position and line number of each match to the query.
@@ -31,11 +32,14 @@ This is a tiny diversion from our larger project to explore data processing. The
     0     0
     96    3
     ```
+
   - when outputting `sort` make your report reproduce the lines in the same order as the input file but with each line's contents sorted and should include the intended sort direction.
   - when outputting count your output file should look like this
+
     ```txt
     Most common character: e
     Least common character: i
     ```
+
 3. Do not use `cin` rely completely on the argument list provided by the command line or through the argument list in the build configuration for your testing.
 4. Do not use `cout` rely completely on outputting a file in the directory local to the working directory by using `./` on your results path. This doesn't mean you can't use `cout` for testing but your final product should not use them.
