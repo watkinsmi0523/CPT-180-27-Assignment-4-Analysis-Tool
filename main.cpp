@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <vector>
 #include <string.h>
 
 
@@ -8,6 +9,7 @@ using namespace std;
 int main(int argc, char *argv[]){
 
     string file_path;
+    string read;
     if (argv[1]){
         file_path = static_cast<string>(argv[1]);
 
@@ -16,7 +18,7 @@ int main(int argc, char *argv[]){
             string search_word = static_cast<string>(argv[3]);
             int line_num = 0;
             int line_pos = 0;
-            string read;
+
 
             ifstream inFile;
             inFile.open(file_path);
@@ -50,12 +52,69 @@ int main(int argc, char *argv[]){
 
     }else if(static_cast<string>(argv[2]) == "sort"){
         if (static_cast<string>(argv[3]) == "asc") {
+            ifstream inFile;
+            inFile.open(file_path);
+
+            ofstream outFile;
+            outFile.open("./sort_asc");
+
+            vector<int> sort;
+            int value;
+            while (inFile >> value){
+                sort.push_back(value);
+            }
+
+            int unsorted = sort.size();
+
+
+            for(int i = 0; i < unsorted - 1; i++){
+                for(int j = 0; j < unsorted - i - 1; j++){
+                    int temp = sort[j];
+                    sort[j] = sort[j + 1];
+                    sort[j + 1] = temp;
+
+                }
+            }
+            for(int i = 0; i < unsorted; i++) {
+                outFile << sort[i] << endl;
+            }
+
+            inFile.close();
+            outFile.close();
 
         }else if (static_cast<string>(argv[3]) == "desc"){
 
+            ifstream inFile;
+            inFile.open(file_path);
 
-        }
-    }else if (static_cast<string>(argv[2]) == "count"){
+            ofstream outFile;
+            outFile.open("./sort_asc");
+
+            vector<int> sort;
+            int value;
+            while (inFile >> value){
+                sort.push_back(value);
+            }
+
+            int unsorted = sort.size();
+
+
+            for(int i = 0; i < unsorted - 1; i++){
+                for(int j = 0; j > unsorted - i - 1; j++){
+                    int temp = sort[j];
+                    sort[j] = sort[j + 1];
+                    sort[j + 1] = temp;
+
+                }
+            }
+            for(int i = 0; i < unsorted; i++) {
+                outFile << sort[i] << endl;
+            }
+
+            inFile.close();
+            outFile.close();
+
+        }else if (static_cast<string>(argv[2]) == "count"){
 
 
 
