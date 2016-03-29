@@ -13,7 +13,7 @@ int main(int argc, char *argv[]){
     if (argv[1]){
         file_path = static_cast<string>(argv[1]);
 
-    }else if (static_cast<string>(argv[2]) == "search"){
+    }if (static_cast<string>(argv[2]) == "search"){
         if (argv[3]){
             string search_word = static_cast<string>(argv[3]);
             int line_num = 0;
